@@ -87,7 +87,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
   };
 
   return (
-    <View style={styles.boardContainer}>
+    <ScrollView style={styles.boardContainer} showsVerticalScrollIndicator={false}>
       {/* Opponent Rows */}
       <View style={styles.opponentSection}>
         <Text style={styles.sectionTitle}>AI Opponent</Text>
@@ -124,7 +124,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
           />
         ))}
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -134,30 +134,34 @@ const styles = StyleSheet.create({
     backgroundColor: '#1a1a1a',
   },
   opponentSection: {
-    flex: 1,
     backgroundColor: '#2a1a1a',
     padding: 10,
+    paddingBottom: 5,
   },
   playerSection: {
-    flex: 1,
     backgroundColor: '#1a2a1a',
     padding: 10,
+    paddingTop: 5,
   },
   middleSection: {
-    height: 40,
+    height: 50,
     backgroundColor: '#3a3a3a',
     justifyContent: 'center',
     alignItems: 'center',
     borderTopWidth: 2,
     borderBottomWidth: 2,
     borderColor: '#d4af37',
+    marginVertical: 5,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#d4af37',
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
+    paddingVertical: 5,
+    backgroundColor: 'rgba(212, 175, 55, 0.1)',
+    borderRadius: 8,
   },
   roundInfo: {
     fontSize: 14,
@@ -170,6 +174,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 8,
     borderWidth: 1,
+    minHeight: 140, // Minimum yükseklik garantisi
   },
   playerRow: {
     borderColor: '#4a8a4a',
